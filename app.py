@@ -142,7 +142,7 @@ def search():
             'posts': analyzed_posts
         }
         
-        return render_template('index.html', results=results)
+        return render_template('index.html', results==results)
 
     except Exception as e:
         print(f"An error occurred during search: {e}")

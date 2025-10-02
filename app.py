@@ -67,6 +67,7 @@ def search():
 
     topic = request.form.get('topic')
     if not topic:
+        # CORRECTED: Use keyword argument for the error message
         return render_template('index.html', error="Please enter a topic.")
 
     weighted_scores = []
@@ -116,6 +117,7 @@ def search():
 
         # --- Calculate Final Weighted Sentiment ---
         if not weighted_scores:
+            # CORRECTED: Use keyword argument for the error message
             return render_template('index.html', error=f"No results found for '{topic}'.")
 
         total_weight = sum(item['weight'] for item in weighted_scores)
@@ -126,9 +128,9 @@ def search():
         
         # --- Prepare Summary Stats ---
         sentiments = [classify_sentiment(item['score']) for item in weighted_scores]
-        positive_percent = round((sentiments.count("Positive") / len(sentiments)) * 100, 1)
-        negative_percent = round((sentiments.count("Negative") / len(sentiments)) * 100, 1)
-        neutral_percent = round((sentiments.count("Neutral") / len(sentiments)) * 100, 1)
+        positive_percent = round((sentiments.count("Positive") / len(sentiments)) * 100, 1) if sentiments else 0
+        negative_percent = round((sentiments.count("Negative") / len(sentiments)) * 100, 1) if sentiments else 0
+        neutral_percent = round((sentiments.count("Neutral") / len(sentiments)) * 100, 1) if sentiments else 0
         
         results = {
             'topic': topic,
@@ -142,7 +144,8 @@ def search():
             'posts': analyzed_posts
         }
         
-        return render_template('index.html', results==results)
+        # CHANGED: Pass the topic data to the template as 'topic_1'
+        return render_template('index.html', results=results, topic_1=topic)
 
     except Exception as e:
         print(f"An error occurred during search: {e}")
@@ -150,3 +153,4 @@ def search():
 
 if __name__ == "__main__":
     app.run(debug=True)
+

@@ -1,1 +1,1 @@
-uthor: Ash.
+Author: Ash.

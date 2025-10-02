@@ -1,5 +1,5 @@
 # Technical Documentation - Reddit Sentiment Analyzer
-
+Author: Ash.
 ## 1. Project Overview
 
 This project is a web application built with Python and Flask that analyzes the sentiment of Reddit posts based on a user-provided topic. It fetches data from Reddit using the PRAW library, performs sentiment analysis using the VADER library, and displays the results on a user-friendly web page styled with Bootstrap.

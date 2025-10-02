@@ -116,3 +116,6 @@ This is a technical project designed to demonstrate data aggregation and NLP tec
 
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
+=======
+Author: Ash.
+>>>>>>> 4718ec403f7862e3842db53e8511201b7823a37c
